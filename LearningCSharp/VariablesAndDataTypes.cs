@@ -58,9 +58,9 @@ namespace LearningCSharp
             Assert.Equal(52, age);
 
             var rover = new Dog();
-            rover.name = "Rover";
+            rover.Name = "Rover";
             DoSomething(rover);
-            Assert.Equal("Fido", rover.name);
+            Assert.Equal("Fido", rover.Name);
         }
 
         [Fact]
@@ -92,7 +92,7 @@ namespace LearningCSharp
 
         public void DoSomething(Dog d)
         {
-            d.name = "Fido";
+            d.Name = "Fido";
         }
 
         public void AgeExample()
@@ -115,7 +115,7 @@ namespace LearningCSharp
 
     public class Dog
     {
-        public string name;
+        public string Name;
     }
 
 }
