@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestPlatform.ObjectModel;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -39,7 +40,74 @@ namespace LearningCSharp
             Assert.Equal(19, firstTwo);
         }
 
-        //[Fact]
-        //public void InitializingAndEnumerating
+        [Fact]
+        public void InitializingAndEnumeratingAList()
+        {
+            var friends = new List<string>
+            {
+                "Sean",
+                "Amy",
+                "Jessika",
+                "Tim"
+            };
+
+            Assert.Equal("Sean", friends[0]);
+
+            var friendString = "";
+            foreach(string friend in friends)
+            {
+                friendString += friend;
+            }
+            Assert.Equal("SeanAmyJessikaTim", friendString);
+        }
+
+        [Fact]
+        public void UsingADictionary()
+        {
+            var friends = new Dictionary<char, string>();
+            friends.Add('s', "Sean");
+            friends.Add('d', "David");
+
+            Assert.Equal("David", friends['d']);
+        }
+
+        [Fact]
+        public void InitializingAndEnumeratingADictionary()
+        {
+            var friends = new Dictionary<char, string>
+            {
+                { 's', "Sean" },
+                { 'd', "David" },
+            };
+
+            Assert.Equal("David", friends['d']);
+
+            Assert.True(friends.ContainsKey('d'));
+            Assert.False(friends.ContainsValue("Billy"));
+
+            foreach(char c in friends.Keys)
+            {
+                // have the key here... 's', 'd'
+            }
+
+            foreach(string f in friends.Values)
+            {
+                // have the values here... "Sean", "David"
+            }
+
+            foreach(KeyValuePair<char, string> keyValuePair in friends)
+            {
+
+            }
+        }
+
+        [Fact]
+        public void ArraysAreCoolButLimited()
+        {
+            string[] friends = new string[] { "Joe", "Bill", "Sue", "Mary" };
+            Assert.Equal("Joe", friends[0]);
+
+            var otherFriends = new string[3];
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Xunit;
@@ -73,6 +74,26 @@ namespace LearningCSharp
             int p = 100;
             GimmeSomething(out p);
             Assert.Equal(42, p);
+        }
+
+        [Fact]
+        public void EnumeratingStrings()
+        {
+            // first - the char data type.
+            char mi = 'M';
+            // delimeted by single quotes
+
+            string message = "Call your mom";
+            Assert.Equal('C', message[0]);
+        }
+
+        [Fact]
+        public void StringsAreImmutable()
+        {
+            string myName = "Rion";
+            myName += " T. Cole";
+
+            Assert.Equal("Rion T. Cole", myName);
         }
 
         public void DoubleItRef(ref int x)
